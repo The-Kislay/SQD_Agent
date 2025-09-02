@@ -12,10 +12,6 @@ python -m pip install -U pip wheel
 pip install -r requirements.txt
 pip install -e .
 
-Got it ✅ — you want the **entire README.md file** ready to drop into your repo.
-Below is the **full file content** (no missing parts, already merged with your runbook and OpenCode integration).
-
----
 
 ```markdown
 # SQD_Agent
