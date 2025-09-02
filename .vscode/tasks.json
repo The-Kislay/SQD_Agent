@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "venv: install",
+      "type": "shell",
+      "command": "python -m pip install -U pip && pip install -r requirements.txt",
+      "problemMatcher": []
+    },
+    {
+      "label": "sqd: run example (LiH)",
+      "type": "shell",
+      "command": "python -m sqd.cli run --geom \"Li 0 0 0; H 0 0 1.60\" --basis sto-3g --shots 300000"
+    },
+    {
+      "label": "sqd: bench N2 (all ansatz)",
+      "type": "shell",
+      "command": "python -m sqd.cli bench --geom \"N 0 0 -0.55; N 0 0 0.55\" --basis sto-3g --ansatz all --shots 300000 --samples-per-batch 300"
+    },
+    {
+      "label": "tests",
+      "type": "shell",
+      "command": "python -m pytest -q",
+      "problemMatcher": []
+    }
+  ]
+}

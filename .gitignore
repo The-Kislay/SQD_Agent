@@ -1,0 +1,48 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+.build/
+build/
+dist/
+.cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Environments ---
+.venv/
+venv/
+env/
+ENV/
+*.env
+*.env.*
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- VS Code ---
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# --- OpenCode: keep configs/agents; ignore state/cache/tokens ---
+.opencode/cache/
+.opencode/state.json
+.opencode/session.json
+!.opencode/opencode.json
+!.opencode/agents/**
+
+# --- Project data/temp (tweak as needed) ---
+data/cache/
+data/tmp/

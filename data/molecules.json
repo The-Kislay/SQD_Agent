@@ -1,0 +1,102 @@
+{
+  "$schema": "https://example.com/sqd-molecules.schema.json",
+  "version": 1,
+  "defaults": {
+    "basis": "sto-3g",
+    "shots": 300000,
+    "samples_per_batch": 300,
+    "max_iterations": 6,
+    "he_layers": 2,
+    "active_orbitals": 6
+  },
+  "molecules": [
+    {
+      "id": "LiH",
+      "label": "Lithium hydride",
+      "geom": "Li 0 0 0; H 0 0 1.60",
+      "basis": "sto-3g",
+      "shots": 300000,
+      "notes": "Simple diatomic; good smoke test."
+    },
+    {
+      "id": "CH4",
+      "label": "Methane",
+      "geom": "C 0.000000 0.000000 0.000000; H 0.000000 0.000000 1.089000; H 1.026719 0.000000 -0.363000; H -0.513360 -0.889165 -0.363000; H -0.513360 0.889165 -0.363000",
+      "basis": "sto-3g",
+      "shots": 300000,
+      "notes": "Tetrahedral geometry; from your example."
+    },
+    {
+      "id": "BeH2",
+      "label": "Beryllium hydride (linear)",
+      "geom": "Be 0 0 0; H 0 0 1.316; H 0 0 -1.316",
+      "basis": "sto-3g",
+      "shots": 300000
+    },
+    {
+      "id": "N2_1p10A",
+      "label": "Dinitrogen (1.10 Å)",
+      "geom": "N 0 0 -0.55; N 0 0 0.55",
+      "basis": "sto-3g",
+      "shots": 300000,
+      "notes": "Symmetric placement at ±0.55 Å."
+    },
+    {
+      "id": "N2_quick",
+      "label": "Dinitrogen (quick demo)",
+      "geom": "N 0 0 0; N 0 0 1.1",
+      "basis": "sto-3g",
+      "shots": 300000,
+      "notes": "Alternate representation used in your single-run examples."
+    },
+    {
+      "id": "H2O",
+      "label": "Water",
+      "geom": "O 0 0 0; H 0 -0.757 0.586; H 0 0.757 0.586",
+      "basis": "sto-3g",
+      "shots": 300000
+    },
+    {
+      "id": "C2H4",
+      "label": "Ethene",
+      "geom": "C 0.000000 0.000000 0.000000; C 1.339000 0.000000 0.000000; H -0.669500 0.000000 0.923700; H -0.669500 0.000000 -0.923700; H 2.008500 0.000000 0.923700; H 2.008500 0.000000 -0.923700",
+      "basis": "sto-3g",
+      "shots": 200000,
+      "active_orbitals": 8,
+      "notes": "π-system; your notebook comment says UCJ/LUCJ shine."
+    },
+    {
+      "id": "H2O2",
+      "label": "Hydrogen peroxide",
+      "geom": "O 0.000000 0.000000 0.000000; O 1.450000 0.000000 0.000000; H -0.350000 0.940000 0.000000; H 1.800000 -0.940000 0.000000",
+      "basis": "sto-3g",
+      "shots": 200000,
+      "active_orbitals": 8
+    },
+    {
+      "id": "CO2",
+      "label": "Carbon dioxide (linear)",
+      "geom": "O -1.160000 0 0; C 0 0 0; O 1.160000 0 0",
+      "basis": "sto-3g",
+      "shots": 180000,
+      "active_orbitals": 8
+    },
+    {
+      "id": "H2CO",
+      "label": "Formaldehyde",
+      "geom": "C 0.000000 0.000000 0.000000; O 1.200000 0.000000 0.000000; H -0.500000 0.943000 0.000000; H -0.500000 -0.943000 0.000000",
+      "basis": "sto-3g",
+      "shots": 150000,
+      "active_orbitals": 8
+    },
+    {
+      "id": "C2H6",
+      "label": "Ethane",
+      "geom": "C 0.000000 0.000000 0.000000; C 1.540000 0.000000 0.000000; H -0.630000 0.900000 0.000000; H -0.630000 -0.450000 0.779000; H -0.630000 -0.450000 -0.779000; H 2.170000 -0.900000 0.000000; H 2.170000 0.450000 -0.779000; H 2.170000 0.450000 0.779000",
+      "basis": "sto-3g",
+      "shots": 150000,
+      "active_orbitals": 8,
+      "notes": "Slightly bigger; still OK on 8 GB."
+    }
+  ]
+}

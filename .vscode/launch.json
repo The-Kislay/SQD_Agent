@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run: sqd.run (custom molecule)",
+      "type": "python",
+      "request": "launch",
+      "module": "sqd.cli",
+      "args": ["run", "--geom", "O 0 0 0; H 0 0.757 0.586; H 0 -0.757 0.586", "--basis", "sto-3g", "--shots", "200000"]
+    },
+    {
+      "name": "Run: sqd.bench (N2, all)",
+      "type": "python",
+      "request": "launch",
+      "module": "sqd.cli",
+      "args": ["bench", "--geom", "N 0 0 -0.55; N 0 0 0.55", "--basis", "sto-3g", "--ansatz", "all"]
+    }
+  ]
+}
