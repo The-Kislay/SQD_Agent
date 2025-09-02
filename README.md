@@ -1,6 +1,9 @@
 # SQD_Agent
 
-Sample-based Quantum Diagonalization (SQD) pipeline split into modules and ready for VS Code + WSL + OpenCode.
+Sample-based Quantum Diagonalization (SQD) pipeline packaged for reproducible runs on molecules using **Qiskit**, **ffsim**, **PySCF**, and **qiskit-addon-sqd**.  
+This repo is designed to be developer-friendly (modular Python package, unit tests, examples) and agent-friendly (integrates with [OpenCode](https://github.com/opencode-ai/opencode) for AI-assisted development).
+
+---
 
 ## Quickstart (WSL)
 
@@ -11,39 +14,31 @@ source .venv/bin/activate
 python -m pip install -U pip wheel
 pip install -r requirements.txt
 pip install -e .
+```
 
-
-```markdown
-# SQD_Agent
-
-Sample-based Quantum Diagonalization (SQD) pipeline packaged for reproducible runs on molecules using **Qiskit**, **ffsim**, **PySCF**, and **qiskit-addon-sqd**.  
-This repo is designed to be developer-friendly (modular Python package, unit tests, examples) and agent-friendly (integrates with [OpenCode](https://github.com/opencode-ai/opencode) for AI-assisted development).
-
----
-
-## 📂 Repository structure
+## Repository structure
 
 ```
 
-SQD\_Agent/
+SQD_Agent/
 ├─ sqd/                   # Core Python package
 │  ├─ chemistry.py        # PySCF RHF/MP2/CCSD/CASCI helpers
 │  ├─ ansatz.py           # HF, UCJ, LUCJ proxy, HE ansatz builders
-│  ├─ active\_space.py     # Active space selection and t2 slicing
+│  ├─ active_space.py     # Active space selection and t2 slicing
 │  ├─ runner.py           # SamplerV2 sampling + SQD diagonalization loop
 │  ├─ compare.py          # Benchmark wrapper with pretty tables
 │  ├─ cli.py              # Typer CLI entrypoints
-│  └─ **init**.py
+│  └─ __init__.py
 ├─ examples/              # Ready-to-run molecule demos
-│  ├─ run\_lithium\_hydride.py
-│  ├─ run\_water.py
-│  └─ benchmark\_suite.py
+│  ├─ run_lithium_hydride.py
+│  ├─ run_water.py
+│  └─ benchmark_suite.py
 ├─ data/
 │  └─ molecules.json      # Cached geometries + defaults
 ├─ tests/                 # Pytest unit tests
-│  ├─ test\_active\_space.py
-│  ├─ test\_ansatz\_shapes.py
-│  └─ test\_runner\_toy.py
+│  ├─ test_active_space.py
+│  ├─ test_ansatz_shapes.py
+│  └─ test_runner_toy.py
 ├─ .vscode/               # Tasks & launch configs for VS Code
 ├─ .opencode/             # (Optional) OpenCode agent config
 ├─ requirements.txt
@@ -52,9 +47,8 @@ SQD\_Agent/
 
 ````
 
----
 
-## 🚀 Setup (WSL Ubuntu recommended)
+## Setup (WSL Ubuntu recommended)
 
 ### 1. Install system deps
 ```bash
@@ -62,7 +56,7 @@ sudo apt update
 sudo apt install -y python3-venv python3-dev build-essential cmake gfortran libopenblas-dev
 ````
 
-### 2. Create and activate venv
+### 2. Create and activate venv (virtual environment for WSL)
 
 ```bash
 cd /mnt/d/project/SQD_Agent   # adjust path if needed
@@ -119,7 +113,7 @@ pip install -e .
 
 ---
 
-## ✅ Run tests
+## Run tests
 
 ```bash
 python -m pytest -q
@@ -127,7 +121,7 @@ python -m pytest -q
 
 ---
 
-## 🧪 Example runs
+## Example runs
 
 ### LiH quick test
 
@@ -153,9 +147,7 @@ python -m sqd.cli bench --geom "N 0 0 -0.55; N 0 0 0.55" --basis sto-3g --ansatz
 python examples/benchmark_suite.py --cases N2_1p10A,LiH,H2O --ansatz all
 ```
 
----
-
-## 🖥️ VS Code integration
+## VS Code integration
 
 * `.vscode/tasks.json`:
 
@@ -166,21 +158,29 @@ python examples/benchmark_suite.py --cases N2_1p10A,LiH,H2O --ansatz all
 
 * `.vscode/launch.json`: debug configs for `sqd.run` and `sqd.bench`.
 
----
 
-## 🤖 OpenCode integration (optional)
+## OpenCode integration (optional)
 
 For AI-assisted development:
 
+install and steup opencode through : https://github.com/opencode-ai/opencode#
+
+if needed
 ```bash
-npm install -g opencode-ai
+sudo apt update
+sudo apt install unzip
+```
+otherwise directly use these commands
+```bash
+curl -fsSL https://opencode.ai/install | bash
 opencode
 /init
 opencode auth login   # google / openai / anthropic etc.
 ```
 
-* Config: `.opencode/opencode.json`
-* Custom agent: `.opencode/agents/sqd-dev.md`
+* Config: `.opencode/opencode.json` #if needed
+* Custom agent: `.opencode/agents/sqd-dev.md` #if needed
+* 
 * Example use:
 
   ```
@@ -190,7 +190,7 @@ opencode auth login   # google / openai / anthropic etc.
 
 ---
 
-## ⚡ Tips
+## Tips
 
 * Use WSL Ubuntu for best compatibility.
 * Adjust `OMP_NUM_THREADS` for performance on laptops.
@@ -199,7 +199,7 @@ opencode auth login   # google / openai / anthropic etc.
 
 ---
 
-## 📜 References
+## References
 
 * Setup commands adapted from `SQD on WSL running commands.txt`.
 * Libraries: [qiskit-addon-sqd](https://github.com/qiskit-community/qiskit-addon-sqd), [ffsim](https://github.com/qiskit-community/ffsim), [PySCF](https://pyscf.org).
